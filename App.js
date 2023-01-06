@@ -2,6 +2,7 @@ import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 import { StyleSheet, Text, View, StatusBar } from "react-native";
 import colors from "./utils/constants/colors";
 import TabNavigator from "./screens/navigations/tab-navigator";
+import { StoreProvider } from "./store";
 
 const theme = {
   ...DefaultTheme,
@@ -15,10 +16,12 @@ const theme = {
 
 export default function App() {
   return (
-    <PaperProvider theme={theme}>
-      <TabNavigator />
-      <StatusBar style="auto" />
-    </PaperProvider>
+    <StoreProvider>
+      <PaperProvider theme={theme}>
+        <TabNavigator />
+        <StatusBar style="auto" />
+      </PaperProvider>
+    </StoreProvider>
   );
 }
 
