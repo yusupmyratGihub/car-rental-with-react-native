@@ -1,19 +1,19 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Card, Button } from "react-native-paper";
+import { Card, Button, Paragraph } from "react-native-paper";
+import { getVehiclesImage } from "../../../utils/functions/vehicle";
 
 const Car = ({ data }) => {
-  //const { model } = data;
+  const { id, model, pricePerHour, image } = data;
+  const getVehicleImage = getVehiclesImage(image[0]);
   return (
     <Card style={styles.card}>
-      <Card.Cover
-        style={styles.cover}
-        source={{ uri: "https://picsum.photos/700" }}
-      />
+      <Card.Cover style={styles.cover} source={getVehicleImage} />
 
       <Card.Content style={styles.content}>
         <View>
-          <Text variant="titleLarge">Card title</Text>
+          <Text variant="titleLarge">{model}</Text>
+          <Paragraph> from ${pricePerHour}/hour</Paragraph>
         </View>
         <Button>Ok</Button>
       </Card.Content>
