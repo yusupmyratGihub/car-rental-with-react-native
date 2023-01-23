@@ -3,6 +3,7 @@ import { StyleSheet, StatusBar } from "react-native";
 import colors from "./utils/constants/colors";
 import { StoreProvider } from "./store";
 import Main from "./main";
+import BookingScreen from "./screens/reservation-screen";
 theme = {
   ...DefaultTheme,
   colors: {
@@ -17,7 +18,8 @@ export default function App() {
   return (
     <StoreProvider>
       <PaperProvider theme={theme}>
-        <Main />
+        {/* <Main /> */}
+        <BookingScreen/>
       </PaperProvider>
     </StoreProvider>
   );
